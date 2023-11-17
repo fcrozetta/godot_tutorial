@@ -30,3 +30,7 @@ func initialize(start_position, player_position):
 	#direction of the player
 	
 	velocity = velocity.rotated(Vector3.UP,rotation.y)
+
+
+func _on_visibility_notifier_screen_exited():
+	queue_free()
