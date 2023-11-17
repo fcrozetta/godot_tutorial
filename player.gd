@@ -17,12 +17,12 @@ func _physics_process(delta):
 	#(note Z is the "deth"to go forward and backwards
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1.0
-	if Input.is_action_just_pressed("move_left"):
-		direction.X -= 1.0
-	if Input.is_action_just_pressed("move_forward"):
-		direction.z -=1
-	if Input.is_action_just_pressed("move_back"):
-		direction.z +=1	
+	if Input.is_action_pressed("move_left"):
+		direction.x -= 1.0
+	if Input.is_action_pressed("move_forward"):
+		direction.z -= 1.0
+	if Input.is_action_pressed("move_back"):
+		direction.z += 1.0	
 	
 	
 	if direction != Vector3.ZERO:
@@ -32,7 +32,7 @@ func _physics_process(delta):
 		
 	# ground velocity
 	target_velocity.x = direction.x * speed
-	target_velocity.y = direction.y * speed
+	target_velocity.z = direction.z * speed
 	
 	# Vertical velocity
 	if not is_on_floor():
