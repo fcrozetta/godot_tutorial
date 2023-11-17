@@ -33,3 +33,11 @@ func _physics_process(delta):
 	# ground velocity
 	target_velocity.x = direction.x * speed
 	target_velocity.y = direction.y * speed
+	
+	# Vertical velocity
+	if not is_on_floor():
+		target_velocity.y -= (fall_acceleration * delta)
+	
+	#move the character
+	velocity = target_velocity
+	move_and_slide()
